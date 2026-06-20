@@ -6,7 +6,7 @@ void main()
 	while(no>0)
 	{
 		rem=no%10;
-		sum=i+rem;
+		sum=no+rem;
 		no=no/10;
 	    i++;
 	}

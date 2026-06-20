@@ -2,13 +2,13 @@
 void main()
 {
 	int no=298,rem,temp=no,rev=0,sum=0;
-	char ch;
+	int ch;
 	printf("Enter your choice:");
-	scanf("%c",&ch);
+	scanf("%d",&ch);
 	for(int i=1;i<=no;i++)
 	{	
 	}
-if(ch=='1')
+if(ch==1)
 		{
 			if(no%2==0)
 			{
@@ -19,7 +19,7 @@ if(ch=='1')
 				printf("No is odd");
 			}
 		}
-		else if(ch=='2')
+		else if(ch==2)
 		{
 			int i=2;
 			if(no%i==0)
@@ -31,7 +31,7 @@ if(ch=='1')
 				printf("It is prime number");
 			}
 		}
-	   else	if(ch=='3')
+	   else	if(ch==3)
 		{
 			while(temp>0)
 			{
@@ -49,7 +49,7 @@ if(ch=='1')
 				printf("No is non palindrome");
 			}
 		}
-			else if(ch=='4')
+			else if(ch==4)
 			{
 				if(no>0)
 				{
@@ -64,7 +64,7 @@ if(ch=='1')
 					printf("No is zero");
 				}
 			}
-			else if(ch=='5')
+			else if(ch==5)
 			{
 				while(temp>0)
 				{
@@ -81,7 +81,7 @@ if(ch=='1')
 					printf("it is non reverse number");
 				}
 			}
-		else if(ch=='6')
+		else if(ch==6)
 			{
 				while(temp>0)
 				{

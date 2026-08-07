@@ -1,0 +1,134 @@
+Assignment 1-MYSQL
+Q.1
+ show databases;
+
+Q.2
+ create table countries(country_id int ,country_name varchar(25),region_id int);
+
+ desc countries;
+
+ insert into countries values(101,"India",2),
+    (102,"canda",2),
+    (103,"Germany",1);
+
+ table countries;
+
+Q.3
+
+ create table job(job_id int primary key,job_title varchar(25) not null,min_salary decimal(7,2),max_salary decimal check(max_salary<=25000));
+
+ desc job;
+
+ insert into job values(1,"Developer",20000,25000);
+
+ insert into job values(2,"Backend Developer",20000,23000);
+
+ table job;
+
+ update job set job_title="Mysql developer" where job_id=1;
+
+ table job;
+
+Q.4
+
+create table job_history(employee_id int primary key,start_date date,end_date date,job_id,dept_id);
+
+desc job_history;
+
+alter table job_history
+    -> modify employee_id int auto_increment;
+
+ insert into job_history(start_date,end_date,job_id,dept_id)
+    -> values("2025-6-12","2026-1-1",1,1),
+    -> ("2020-1-15","2025-3-12",2,3);
+
+ table job_history;
+
+Q.5
+
+ alter table countries
+    -> modify country_id int unique;
+
+ desc countries;
+
+Q.6
+
+ create table job_default(job_id int primary key,job_title varchar(25),min_salary decimal(7,2) default(8000),max_salary decimal(7,2));
+
+ desc job_default;
+
+ insert into job_default(job_id) values(1);
+
+ table job_default;
+
+Q.7
+
+create table department(dept_id int ,dept_name varchar(25) not null,manager_id int,location_id int);
+
+ desc department1;
+
+ alter table department1
+    -> add primary key(dept_id,manager_id);
+
+ desc department1;
+
+insert into department1 values(1,"IT",21,32),
+    -> (2,"engineering",22,33);
+
+table department1;
+
+update department1 set location_id=34 where dept_id=1;
+
+Q.8
+
+create table employee1(employee_id int primary key,first_name varchar(25),last_name varchar(25),email varchar(20),phone_no varchar(20),hire_date date,job_id int,salary decimal(7,2),commission decimal(7,2),manager_id int,dept_id int);
+
+desc employee1;
+
+alter table employee1
+    -> add foreign key(dept_id)
+    -> references department1(dept_id);
+
+ desc employee1;
+
+insert into employee1 values(101,"Aishwarya","Wagare","aishwarya@gmail.com","1234567890","2025-2-3",1,34000,400,34,1),
+    -> (102,"prajkta","patil","prajkta@gmail.com","9876543210","2026-1-12",2,35000,5000,32,2);
+
+ table employee1;
+
+
+Q.9
+
+	step 1-
+
+create table department_manager(department_id int  ,manager_id int, manager_name varchar(25) not null );
+
+desc department_manager;
+
+ alter table department_manager
+    -> add primary key(department_id,manager_id);
+
+desc department_manager;
+
+alter table department_manager
+    -> modify department_id int auto_increment;
+
+insert into department_manager(manager_id,manager_name)values(101,"Aishwarya"),
+    -> (102,"Sandhya"),
+    -> (103,"Pradnya"),
+    -> (104,"Kavya");
+
+ table department_manager;
+
+	step 2-
+	
+alter table employee1
+    -> add foreign key(department_id,manager_id)
+    -> references department_manager(department_id,manager_id);
+
+ desc employee1;
+
+ insert into employee1 values(103,"Sanika","salokhe","sanika@gmail.com","8765432190","2023-2-22",3,32000,1000,101,1),
+    -> (104,"prachi","Marathe","prachi@gmail.com","1233567890","2025-12-1",2,35000,2000,103,3);
+
+table employee1;

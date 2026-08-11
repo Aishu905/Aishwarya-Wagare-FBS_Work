@@ -1,0 +1,91 @@
+Assignment 4-mysql
+
+Q1.
+
+ SELECT first_name as "First Name ",last_name as "Last Name" FROM employee1;
+
+Q.2
+
+SELECT DISTINCT(dept_id) FROM employee;
+
+Q.3
+
+SELECT * FROM employee1 ORDER BY first_name DESC;
+
+Q.4
+
+SELECT first_name,last_name,salary,salary*0.15 AS "PF " FROM employee1;
+
+Q.5
+
+SELECT employee_id,first_name,last_name,salary FROM employee1 ORDER BY salary ASC;
+
+Q.6
+
+SELECT SUM(salary) FROM employee;
+
+Q.7
+
+ SELECT MAX(salary) FROM employee;
+
+ SELECT MIN(salary) FROM employee;
+
+Q.8
+
+SELECT AVG(salary) FROM employee;
+
+ SELECT COUNT(id) FROM employee;
+
+Q.9
+
+ SELECT COUNT(id) FROM employee;
+
+Q.10
+
+SELECT COUNT(DISTINCT(job_id)) as "No of counts" FROM employee2;
+
+Q.11
+
+SELECT * FROM employee1 limit 10;
+
+Q.12
+
+SELECT first_name , salary FROM employee1 WHERE salary NOT BETWEEN 10000 AND 15000;
+
+Q.13
+
+ SELECT first_name,department_id FROM employee1 WHERE department_id IN(30,100);
+
+ SELECT * FROM employee1 ORDER BY department_id DESC;
+
+Q.14
+
+SELECT first_name,salary FROM employee1 WHERE department_id IN(30,100) AND salary NOT BETWEEN 10000 and 15000;
+
+Q.15
+
+SELECT first_name,hire_date FROM employee1 WHERE hire_date BETWEEN "1987-01-01" AND "1987-12-31";
+
+Q.16
+
+ SELECT name FROM employee WHERE name LIKE "b%" AND name LIKE "c%";
+
+Q.17
+
+SELECT last_name,job_id as "Job Role",salary FROM employee1 WHERE job_id IN(SELECT job_id FROM job1 WHERE job_title IN("Programmer","Shipping Clerk")AND salary NOT IN(4000,10000,15000));
+
+Q.18
+
+ SELECT last_name as "Last Name" FROM employee1 WHERE last_name LIKE "______";
+
+Q.19
+
+SELECT last_name FROM employee1 WHERE last_name LIKE "%e__";
+
+Q.20
+
+SELECT DISTINCT(job_id) FROM employee1;
+
+Q.21
+
+ SELECT * FROM employee2 WHERE last_name IN("Black","Scott","King","Ford");

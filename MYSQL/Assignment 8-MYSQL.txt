@@ -1,0 +1,84 @@
+Assignment 8-MYSQL
+
+Q.1
+ delimiter #
+
+ create function Annual_Salary(salary decimal(10,2))
+    -> returns decimal(10,2)
+    -> deterministic
+    -> begin
+    -> declare temp decimal(10,2);
+    -> set temp=salary*12;
+    -> return temp;
+    -> end#
+
+ delimiter ;
+
+ select customer_name,salary,Annual_Salary(salary) as "Yearly Salary" from emp;
+
+Q.2
+
+ delimiter #
+
+ create function Calculate_Bonus(salary decimal(10,2))
+    -> returns decimal(10,2)
+    -> deterministic
+    -> begin
+    -> declare bonus decimal(10,2);
+    -> if salary>=80000 then
+    -> set bonus=salary*0.2;
+    -> elseif salary between 50000 and 79999 then
+    -> set bonus=salary*0.1;
+    -> else
+    -> set bonus=salary*0.05;
+    -> end if;
+    -> return bonus;
+    -> end#
+
+ delimiter ;
+
+select customer_name,salary,Calculate_Bonus(salary) as "Bonus" from emp;
+
+Q.3
+
+ delimiter #
+
+ create function Salary_Grade(salary decimal(10,2))
+    -> returns varchar(20)
+    -> deterministic
+    -> begin
+    -> declare grade varchar(25);
+    -> if salary>80000 then
+    -> set grade="A";
+    -> elseif salary between 50000 and 79999 then
+    -> set grade="B";
+    -> else
+    -> set grade="C";
+    -> end if;
+    -> return grade;
+    -> end#
+
+ delimiter ;
+
+ select customer_name,salary,Salary_Grade(salary) as "Grade" from emp;
+
+Q.4
+
+ delimiter #
+
+ create function emp_exist2(id int)
+    -> returns int
+    -> deterministic
+    -> begin
+    -> declare no int;
+    -> if id>0 then
+    -> set no=1;
+    -> else
+    -> set no=0;
+    -> end if;
+    -> return no;
+    -> end#
+
+delimiter ;
+
+ select id,name,emp_exist2(id) from employee;

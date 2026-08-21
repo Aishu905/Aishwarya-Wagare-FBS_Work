@@ -1,0 +1,37 @@
+Assignment 6
+
+Q.1
+create view Book_List as select * from book;
+
+Q.2
+select * from Book_List;
+
+Q.3
+create view Issue_Books as select lib_issue_id,book_no,member_id,issue_date from issue where return_date is null;
+
+Q.4
+select lib_issue_id,book_no,member_id,issue_date from Issue_Books;
+
+Q.5
+ create view Member_Penality as select member_id,member_name,penality_amount from member where penality_amount > 0;
+
+Q.6
+ select member_id,member_name,penality_amount from Member_Penality;
+
+Q.7
+ create view book_issue as select b.book_name,m.member_name,i.issue_date,i.return_date from book as b inner join member as m inner join issue as i on b.book_no=i.book_no and i.member_id=m.member_id;
+
+Q.8
+ select book_name,member_name,issue_date,return_date from book_issue;
+
+Q.9
+ select book_name,member_name,issue_date,return_date from book_issue;
+
+Q.10
+ drop view Issue_Books;
+
+Q.11
+ drop view Member_Penality;
+
+Q.12
+ drop view book_issue;
